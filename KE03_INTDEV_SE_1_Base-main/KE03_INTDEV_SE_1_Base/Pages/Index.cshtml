@@ -4,22 +4,15 @@
     ViewData["Title"] = "Home page";
 }
 <link rel='stylesheet' type='text/css' media='screen' href='~/css/index.css'>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Product</th>
-            <th>Prijs</th>
-        </tr>
-    </thead>
+<table class="product_holder">
     @foreach (var c in Model.Products)
     {        
         <tr>
             <a href="/product?id=@c.Id">
                 <div class="Product">
-                    <img src="@c.ImgUrl" alt="Alternate Text" />
-                    <h1>@Html.DisplayName(c.Name)</h1>
+                    <img style="width: 190px; 190px;"src="@c.ImgUrl" alt="Alternate Text" />
+                    <p>@Html.DisplayName(c.Name)</p>
                     <p>@Html.DisplayName(c.Price.ToString())</p>     
-                    <p>@Html.DisplayName(c.Description)</p>
                 </div>
             </a>
         </tr>
