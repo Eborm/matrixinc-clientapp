@@ -1,0 +1,117 @@
+﻿body {
+    background-color: #4e64d3;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.Product {
+    background-color: #5B74F1;
+    border-radius: 20px;
+    width: 650px;
+    padding: 20px;
+    margin: 30px auto;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+    .product-content img {
+        max-width: 220px;
+        height: auto;
+        border-radius: 10px;
+        background: transparent;
+    }
+
+.product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-description {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-name {
+    font-size: 1.3rem;
+}
+
+.product-price {
+    font-size: 1.3rem;
+}
+
+.stars {
+    display: flex;
+    gap: 6px;
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 10px;
+}
+
+.dropdown-and-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+select {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    appearance: none;
+}
+
+    select:focus {
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.3);
+        color: white;
+    }
+
+/* Alleen voor Chrome, Edge, Safari: forceer donkere tekstkleur bij open dropdown */
+option {
+    background-color: #5B74F1;
+    color: white;
+}
+
+
+.add-to-cart {
+    background-color: #35b172;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+    .add-to-cart:hover {
+        background-color: #2e9e64;
+    }

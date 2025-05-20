@@ -1,0 +1,41 @@
+﻿@page
+@model KE03_INTDEV_SE_1_Base.Pages.productModel
+<link rel='stylesheet' type='text/css' media='screen' href='~/css/product.css'>
+
+@foreach (var product in Model.Products)
+{
+    @if (product.Id == int.Parse(Request.Query["id"]))
+    {
+        <div class="Product">
+            <div class="product-content">
+                <img src="@product.ImgUrl" alt="@product.Name" />
+                <div class="product-info">
+                    <p class="product-description">@product.Description</p>
+
+                    <div class="product-header">
+                        <span class="product-name">@product.Name</span>
+                        <span class="product-price">€@product.Price.ToString("0.00")</span>
+                    </div>
+
+                    <div class="stars">
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            <span>☆</span>
+                        }
+                    </div>
+
+                    <div class="dropdown-and-button">
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <button class="add-to-cart">Voeg toe aan winkelmand</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
