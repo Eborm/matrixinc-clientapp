@@ -3,16 +3,19 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <link rel='stylesheet' type='text/css' media='screen' href='~/css/login.css'>
-@foreach (var users in Model.Users)
+@foreach (var user in Model.Users)
 {
-    <div class="user">
+    var isActive = Model.GetUserId() == user.Id;
+    var userStyle = isActive ? "background-color: gray;" : "";
+    var buttonStyle = isActive ? "background-color: darkgray;" : "";
+
+    <div class="user" style="@userStyle">
         <div class="user-content">
             <div class="user-info">
-
                 <div class="user-header">
                     <ion-icon name="person-outline"></ion-icon>
-                    <span class="username">@users.Name</span>
-                    <button class="login-btn">login</button>
+                    <span class="username">@user.Name</span>
+                    <button style="@buttonStyle" onclick="location.href='?setId=@user.Id'" class="login-btn">Login</button>
                 </div>
             </div>
         </div>
