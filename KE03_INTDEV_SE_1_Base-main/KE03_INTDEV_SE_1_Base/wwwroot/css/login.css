@@ -1,0 +1,60 @@
+﻿body {
+    background-color: #4e64d3;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.user {
+    background-color: #5B74F1;
+    border-radius: 20px;
+    max-width: 500px;
+    padding: 20px 30px;
+    margin: 30px auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .user:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+.user-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+ion-icon {
+    font-size: 1.6rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.username {
+    font-size: 1.3rem;
+}
+
+.login-btn {
+    background-color: #35b172;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .login-btn:hover {
+        background-color: #2e9e64;
+        transform: scale(1.05);
+    }

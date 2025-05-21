@@ -1,0 +1,20 @@
+﻿@page
+@model KE03_INTDEV_SE_1_Base.Pages.loginModel
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<link rel='stylesheet' type='text/css' media='screen' href='~/css/login.css'>
+@foreach (var users in Model.Users)
+{
+    <div class="user">
+        <div class="user-content">
+            <div class="user-info">
+
+                <div class="user-header">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <span class="username">@users.Name</span>
+                    <button class="login-btn">login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

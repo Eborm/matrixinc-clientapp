@@ -23,7 +23,7 @@ namespace KE03_INTDEV_SE_1_Base.Pages
         public void OnGet()
         {
             Products = _ProductRepository.GetAllProducts().ToList();
-            _logger.LogInformation($"getting all {Products.Count} customers");
+            _logger.LogInformation($"getting all {Products.Count} Products");
         }
     }
 }

@@ -1,3 +1,4 @@
+/* Algemene instellingen */
 body {
     margin: 0;
     background-color: #4e64d3;
@@ -5,6 +6,7 @@ body {
     color: white;
 }
 
+/* Header styling */
 .header {
     display: flex;
     align-items: center;
@@ -14,11 +16,13 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Logo */
 .logo img {
     height: 50px;
     border-radius: 4px;
 }
 
+/* Zoekbalk */
 .search-bar {
     flex: 1;
     display: flex;
@@ -45,6 +49,30 @@ body {
         outline: none;
     }
 
+        /* Placeholder wit maken voor alle browsers */
+        .search-bar input::placeholder {
+            color: white;
+            opacity: 1;
+        }
+
+        .search-bar input::-webkit-input-placeholder {
+            color: white;
+        }
+
+        .search-bar input::-moz-placeholder {
+            color: white;
+            opacity: 1;
+        }
+
+        .search-bar input:-ms-input-placeholder {
+            color: white;
+        }
+
+        .search-bar input:-moz-placeholder {
+            color: white;
+        }
+
+/* Taalkeuze */
 .language {
     display: flex;
     flex-direction: column;
@@ -63,6 +91,7 @@ body {
         width: 20px;
     }
 
+/* Iconen en login */
 .icons {
     display: flex;
     align-items: center;
@@ -72,9 +101,21 @@ body {
 
     .icons i {
         font-size: 1.5rem;
+        color: white;
     }
 
-    .icons span {
-        display: inline-block;
-        line-height: 1.2;
+    /* Login-link wit maken */
+    .icons a {
+        color: white !important;
+        text-decoration: none;
     }
+
+        /* Eventueel hover-effect voor login */
+        .icons a:hover {
+            text-decoration: underline;
+        }
+
+        /* Login-span specifiek wit maken (extra zekerheid) */
+        .icons a span {
+            color: white !important;
+        }
