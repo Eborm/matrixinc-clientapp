@@ -1,32 +1,64 @@
-﻿<!DOCTYPE html>
+﻿@using DataAccessLayer.Interfaces
+@using DataAccessLayer.Models
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.AspNetCore.Mvc.RazorPages;
+@using KE03_INTDEV_SE_1_Base.Pages;
+@inject ICustomerRepository UserRepository
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var userId = HttpContextAccessor.HttpContext.Session.GetObjectFromJson<int?>("User_id") ?? -1;
+    var user = UserRepository.GetCustomerById(userId);
+}
+
+<!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Matrix Inc</title>
     <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- FontAwesome voor iconen -->
 </head>
 <body>
-    <header class="header">
+    <header>
         <div class="logo">
             <img src="~/img/matrix_logo.png" alt="Matrix Inc" />
         </div>
+
+        <div class="home-btn">
+            <a href="/index">
+                <button>Home</button>
+            </a>
+        </div>
+
         <div class="search-bar">
             <i class="fas fa-search"></i>
             <input type="text" placeholder="Zoeken" />
         </div>
+
         <div class="language">
             <div><img src="~/img/nl.png" alt="NL" /> Nederlands</div>
         </div>
+
         <div class="icons">
             <i class="fas fa-shopping-cart"></i>
             <i class="fas fa-user"></i>
-            <a href="/login"><span>Login</span></a>
+            @if (userId == -1)
+            {
+                <a href="/login"><span>Login</span></a>
+            }
+            else if (user != null)
+            {
+                <span>Welkom @user.Name</span>
+            }
         </div>
     </header>
 
-    <main>
+    <main role="main">
         @RenderBody()
     </main>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

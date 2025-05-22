@@ -19,6 +19,8 @@ namespace KE03_INTDEV_SE_1_Base
                 options.Cookie.IsEssential = true;
             });
             builder.Services.AddRazorPages();
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 
             // We gebruiken voor nu even een SQLite voor de database,
