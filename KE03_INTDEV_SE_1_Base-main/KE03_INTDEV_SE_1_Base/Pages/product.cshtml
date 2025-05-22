@@ -4,7 +4,7 @@
 
 @foreach (var product in Model.Products)
 {
-    @if (product.Id == int.Parse(Request.Query["id"]))
+    @if (product.Id == Model.Id)
     {
         <div class="Product">
             <div class="product-content">
@@ -25,14 +25,17 @@
                     </div>
 
                     <div class="dropdown-and-button">
-                        <select>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <button class="add-to-cart">Voeg toe aan winkelmand</button>
+                        <form method="post" asp-page-handler="SetCart">
+                            <input type="hidden" name="Product_id" value="@product.Id" />
+                            <select name="Product_count">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <button type="submit" class="add-to-cart">Voeg toe aan winkelmand</button>
+                        </form>
                     </div>
                 </div>
             </div>
