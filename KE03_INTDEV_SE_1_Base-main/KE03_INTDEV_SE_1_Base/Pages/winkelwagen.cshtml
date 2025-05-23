@@ -1,0 +1,49 @@
+﻿@page
+@model KE03_INTDEV_SE_1_Base.Pages.winkelwagenModel
+<link rel="stylesheet" href="/css/winkelwagen.css" />
+@{
+	<div class="Order">
+		<div class="Products">
+			@foreach (var product in Model.Products)
+			{
+                <div class="Product">
+                    <div class="product-content">
+                        <img src="@product.ImgUrl" alt="@product.Name" />
+                        <div class="product-info">
+                            <div class="product-header">
+                                <span class="product-name">@product.Name</span>
+                                <span class="product-price">€@product.Price.ToString("0.00")</span>
+                                <span class="product-count">Aantal: @Model.Cart[product.Id]</span>
+                                <form method="post" asp-page-handler="Remove">
+                                    <input type="hidden" name="id" value="@product.Id" />
+                                    <button type="submit" class="remove-button">verweider product</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			}
+            <div class="Product">
+                <div class="product-content">
+                    <div class="product-info">
+                        <div class="product-header">
+                            <span class="product-name">Bezorg kosten</span>
+                            <span class="product-price">€1,00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+        <div class="Order-Total">
+            <span class="total">Totaal: €@Model.TotalPrice.ToString("0.00")</span>
+            <div class="button-row">
+                <form>
+                    <button type="button" class="verder-button" onclick="location.href='/index'">Verder winkelen</button>
+                </form>
+                <form method="post" asp-page-handler="Order">
+                    <button type="submit" class="order-button">Bestel</button>
+                </form>
+            </div>
+        </div>
+	</div>
+}

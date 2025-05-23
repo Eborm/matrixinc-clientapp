@@ -17,6 +17,12 @@ namespace DataAccessLayer.Models
         
         public Customer Customer { get; set; } = null!;
 
+        public string? Address { get; set; }
+
+        public string? Email { get; set; }
+        public ICollection<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
+
+
         public ICollection<Product> Products { get; } = new List<Product>();
     }
 }

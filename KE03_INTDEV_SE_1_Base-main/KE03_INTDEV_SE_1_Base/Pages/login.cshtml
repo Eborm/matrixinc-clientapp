@@ -3,21 +3,32 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <link rel='stylesheet' type='text/css' media='screen' href='~/css/login.css'>
+@if (Model.DisplayMessage == "login")
+{
+    <div class="error-message">
+        <ion-icon name="warning-outline"></ion-icon>
+		<span>Login voor dat je gaat bestellen</span>
+        <button onclick="location.href='?setId=1'" class="login-btn">Ik wil niet inloggen</button>
+    </div>
+}
+
 @foreach (var user in Model.Users)
 {
-    var isActive = Model.GetUserId() == user.Id;
-    var userStyle = isActive ? "background-color: gray;" : "";
-    var buttonStyle = isActive ? "background-color: darkgray;" : "";
-
-    <div class="user" style="@userStyle">
-        <div class="user-content">
-            <div class="user-info">
-                <div class="user-header">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <span class="username">@user.Name</span>
-                    <button style="@buttonStyle" onclick="location.href='?setId=@user.Id'" class="login-btn">Login</button>
+    if (user.Id != 1)
+    {
+        var isActive = Model.GetUserId() == user.Id;
+        var userStyle = isActive ? "background-color: gray;" : "";
+        var buttonStyle = isActive ? "background-color: darkgray;" : "";
+        <div class="user" style="@userStyle">
+            <div class="user-content">
+                <div class="user-info">
+                    <div class="user-header">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <span class="username">@user.Name</span>
+                        <button style="@buttonStyle" onclick="location.href='?setId=@user.Id'" class="login-btn">Login</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div>     
+    }
 }

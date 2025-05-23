@@ -48,7 +48,7 @@ namespace KE03_INTDEV_SE_1_Base.Pages
 
             HttpContext.Session.SetObjectAsJson("Cart", Cart);
             _logger.LogInformation("Set Cart to: {cart}", JsonConvert.SerializeObject(Cart));
-            return RedirectToPage("product", new { id=Product_id });
+            return RedirectToPage("index", new { });
         }
     }
 }

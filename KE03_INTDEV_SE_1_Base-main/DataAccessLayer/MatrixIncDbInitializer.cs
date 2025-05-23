@@ -23,6 +23,7 @@ namespace DataAccessLayer
             // - Denk aan namen van vliegtuigen            
             var customers = new Customer[]
             {
+                new Customer { Name = "Gast", Address = "", Active = false },
                 new Customer { Name = "Neo", Address = "123 Elm St" , Active=true},
                 new Customer { Name = "Morpheus", Address = "456 Oak St", Active = true },
                 new Customer { Name = "Trinity", Address = "789 Pine St", Active = true }
@@ -31,10 +32,11 @@ namespace DataAccessLayer
 
             var orders = new Order[]
             {
-                new Order { Customer = customers[0], OrderDate = DateTime.Parse("2021-01-01")},
-                new Order { Customer = customers[0], OrderDate = DateTime.Parse("2021-02-01")},
+                new Order { Customer = customers[0], OrderDate = DateTime.Parse("2021-01-01"), Address = "", Email = ""},
+                new Order { Customer = customers[1], OrderDate = DateTime.Parse("2021-01-01")},
                 new Order { Customer = customers[1], OrderDate = DateTime.Parse("2021-02-01")},
-                new Order { Customer = customers[2], OrderDate = DateTime.Parse("2021-03-01")}
+                new Order { Customer = customers[2], OrderDate = DateTime.Parse("2021-02-01")},
+                new Order { Customer = customers[3], OrderDate = DateTime.Parse("2021-03-01")}
             };  
             context.Orders.AddRange(orders);
 

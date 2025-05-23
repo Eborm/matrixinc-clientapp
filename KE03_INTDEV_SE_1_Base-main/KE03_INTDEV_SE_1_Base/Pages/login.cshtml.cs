@@ -13,6 +13,8 @@ namespace KE03_INTDEV_SE_1_Base.Pages
 
         public IList<Customer> Users { get; set; }
 
+        public string DisplayMessage { get; set; }
+
         public loginModel(ILogger<loginModel> logger, ICustomerRepository UserRepository)
         {
             _logger = logger;
@@ -23,6 +25,8 @@ namespace KE03_INTDEV_SE_1_Base.Pages
         {
             Users = _UserRepository.GetAllCustomers().ToList();
             _logger.LogInformation($"getting all {Users.Count} Users");
+            DisplayMessage = Request.Query["display_message"];
+            _logger.LogInformation("Display message: {DisplayMessage}", DisplayMessage);
 
             if (setId.HasValue)
             {

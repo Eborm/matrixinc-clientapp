@@ -58,3 +58,18 @@ ion-icon {
         background-color: #2e9e64;
         transform: scale(1.05);
     }
+
+.error-message {
+    background-color: #e74c3c; /* rood */
+    color: white;
+    font-weight: bold;
+    padding: 15px 20px;
+    margin: 30px auto 0 auto;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}

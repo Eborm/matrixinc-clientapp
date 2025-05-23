@@ -1,0 +1,217 @@
+﻿body {
+    background-color: #3549d4; /* Achtergrondkleur buiten winkelwagen */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.Order {
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #3549d4; /* Blauw zoals in de screenshot */
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Products {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Product {
+    background-color: #4861f0; /* Blok achter product */
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.product-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .product-content img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        border-radius: 8px;
+        background-color: white;
+        padding: 4px;
+    }
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-count {
+    font-size: 14px;
+    color: #d6d6d6;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.Order-Total {
+    background-color: #5d74f4;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.total {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+    .button-row form {
+        flex: 1; /* dit zorgt dat beide formulieren even breed zijn */
+    }
+
+.verder-button,
+.order-button {
+    width: 100%; /* laat de knop zelf de volledige breedte van het formulier innemen */
+    background-color: #00c76f;
+    border: none;
+    padding: 10px 0;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.remove-button {
+    background-color: #e74c3c; /* rode kleur voor verwijderen */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .remove-button:hover {
+        background-color: #c0392b;
+        transform: scale(1.05);
+    }
+.user-info {
+    background-color: #4861f0;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+    .user-info input {
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        background-color: white;
+        color: #333;
+        width: 100%;
+    }
+
+        .user-info input[readonly] {
+            background-color: #e0e0e0;
+            color: #666;
+        }
+
+.shipping-cost {
+    display: flex;
+    justify-content: space-between;
+    background-color: #4861f0;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    .Order {
+        width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .product-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+        .product-content img {
+            width: 100%;
+            max-width: 120px;
+        }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+        .button-row form {
+            width: 100%;
+        }
+
+    .verder-button,
+    .order-button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+.bestel-button {
+    margin-top: 10px;
+    width: 100%;
+    background-color: #00c76f;
+    border: none;
+    padding: 12px 0;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .bestel-button:hover {
+        background-color: #00a95c;
+        transform: scale(1.03);
+    }
+
+    .bestel-button:active {
+        transform: scale(0.98);
+    }

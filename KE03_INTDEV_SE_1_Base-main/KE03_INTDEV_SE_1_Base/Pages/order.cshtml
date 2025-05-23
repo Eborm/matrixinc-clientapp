@@ -1,0 +1,52 @@
+﻿@page
+@model KE03_INTDEV_SE_1_Base.Pages.orderModel
+<link rel="stylesheet" href="/css/order.css" />
+@{
+    <div class="Order">
+        <div class="Products">
+            @foreach (var product in Model.Products)
+            {
+                <div class="Product">
+                    <div class="product-content">
+                        <img src="@product.ImgUrl" alt="@product.Name" />
+                        <div class="product-info">
+                            <div class="product-header">
+                                <span class="product-name">@product.Name</span>
+                                <span class="product-price">€@product.Price.ToString("0.00")</span>
+                                <span class="product-count">Aantal: @Model.Cart[product.Id]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="Product">
+                <div class="product-content">
+                    <div class="product-info">
+                        <div class="product-header">
+                            <span class="product-name">Bezorg kosten</span>
+                            <span class="product-price">€1,00</span>
+                            <br>
+                            <span class="product-name">Totaal: </span>
+                            <span class="product-price">€@Model.TotalPrice</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-info">
+                <form method="post" asp-page-handler="Order">
+                    <p>naam</p>
+                    <input name="naam" value="@Model.user.Name">
+                    <p>address</p>
+                    <input name="address" value="@Model.user.Address">
+                    @if (Model.user.Id == 1)
+                    {
+                        <p>email</p>
+                        <input name="email" value="">
+                    }
+                    <input type="hidden" name="id" value="@Model.user.Id" />
+                    <button type="submit" class="bestel-button">Bestellen</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
