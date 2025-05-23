@@ -1,4 +1,26 @@
 ﻿@page
 @model KE03_INTDEV_SE_1_Base.Pages.orderHistoryModel
+<link rel="stylesheet" href="/css/orderHistory.css" />
 @{
+    <div class="Products">
+        @foreach (var order in Model.Orders)
+        {
+            if (order.CustomerId == Model.user_id)
+            {
+                <div class="order">
+                    <div class="order-content">
+                        <div class="order-info">
+                            <div class="order-header">
+                                <span class="order-id">Bestelling ID: @order.Id</span>
+                                <span class="oder-date">Datum: @order.OrderDate</span>
+                                <span class="order-count">Aantal items: @Model.ProductCount[order.Id]</span>
+                                <span class="product-price">Totaal: €@Model.product_count_extra[Model.ProductCount[order.Id]].ToString("0.00")</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
 }

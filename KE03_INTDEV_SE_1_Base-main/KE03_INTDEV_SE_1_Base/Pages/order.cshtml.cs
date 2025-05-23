@@ -74,10 +74,6 @@ namespace KE03_INTDEV_SE_1_Base.Pages
         public IActionResult OnPostOrder(string naam, string address, string id, string? email)
         {
             Order order = new Order();
-            if (Products.Count() < 1)
-            {
-                return RedirectToPage("index", new { });
-            }
             foreach (var entry in Cart)
             {
                 var product = _ProductRepository.GetProductById(entry.Key);

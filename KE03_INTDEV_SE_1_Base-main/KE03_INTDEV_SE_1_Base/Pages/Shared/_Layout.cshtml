@@ -8,6 +8,7 @@
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
 
 @{
     var userId = HttpContextAccessor.HttpContext.Session.GetObjectFromJson<int?>("User_id") ?? -1;
@@ -44,13 +45,15 @@
         </div>
 
         <div class="icons">
-            <a href="/winkelwagen"><ion-icon name="cart-outline"></ion-icon></a>
             @if (userId == -1)
             {
+                <a href="/winkelwagen"><ion-icon name="cart-outline"></ion-icon></a>
                 <a href="/login"><span>Login</span></a>
             }
             else if (user != null)
             {
+                <a href="/orderHistory"><i class="fa fa-history" aria-hidden="true"></i></a>
+                <a href="/winkelwagen"><ion-icon name="cart-outline"></ion-icon></a>
                 <a href="/login"><ion-icon class="user_profile" name="person-circle-outline"></ion-icon></a>
 
                 <span>Welkom @user.Name</span>
